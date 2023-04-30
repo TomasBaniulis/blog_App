@@ -20,6 +20,12 @@ import java.util.List;
 public class PostController {
 
     private final PostService postService;
+
+    @GetMapping
+    public String showAllPosts (Model model){
+        model.addAttribute("posts", postService.getAllPosts());
+        return "posts";
+    }
     @GetMapping("/create")
     public String openPostCreateForm (Model model){
         model.addAttribute("post", new Post());
