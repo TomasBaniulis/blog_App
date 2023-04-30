@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.engine.internal.Cascade;
 
+import java.util.List;
 import java.util.UUID;
 
 @Setter
@@ -31,4 +33,6 @@ private String password;
 private String email;
 @Column (length = 100)
 private String avatar;
+@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<CommentEntity> comments;
 }

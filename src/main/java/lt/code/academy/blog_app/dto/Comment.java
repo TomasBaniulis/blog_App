@@ -11,7 +11,7 @@ import java.util.UUID;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Comment extends User {
+public class Comment {
     private UUID commentId;
     private String commentText;
     private LocalDate commentDate;
