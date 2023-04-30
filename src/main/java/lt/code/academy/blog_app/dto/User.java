@@ -18,6 +18,8 @@ public class User {
     private String surname;
     private String userName;
     private String password;
+    private String email;
+    private String avatar;
 
     private List<Role> userRoles;
 }

@@ -12,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Comment extends User {
-    private UUID id;
-    private String text;
-    private LocalDate date;
+    private UUID commentId;
+    private String commentText;
+    private LocalDate commentDate;
 }
