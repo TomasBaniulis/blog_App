@@ -13,10 +13,11 @@
 
             <label>Post</label>
             <input type="text" placeholder="Post text" th:field="*{postText}">
-
-            <button type="submit">create post</button>
-
         </div>
+
+        <button type="submit">create post</button>
+
+        <h4 th:if="${message}" th:text = "${message}"></h4>
 
 
     </form>

@@ -26,12 +26,14 @@ public class PostController {
         return "/form/post";
     }
     @PostMapping("/create")
-    public String createPost (Post post) {
+    public String createPost (Post post, Model model) {
         List<Comment> comments = new ArrayList<>();
         post.setPostDate(LocalDate.now());
         post.setComments(comments);
         postService.createPost(post);
-        return "/posts";
+        model.addAttribute("post", new Post());
+        model.addAttribute("message", "Post created successfully");
+        return "/form/post";
 
     }
 
