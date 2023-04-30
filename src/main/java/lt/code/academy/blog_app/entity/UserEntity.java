@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lt.code.academy.blog_app.dto.User;
 import org.hibernate.engine.internal.Cascade;
 
 import java.util.List;
@@ -35,4 +36,21 @@ private String email;
 private String avatar;
 @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<CommentEntity> comments;
+
+    public static UserEntity convert (User user){
+        return new UserEntity(
+                user.getId(),
+                user.getName(),
+                user.getSurname(),
+                user.getUserName(),
+                user.getPassword(),
+                user.getEmail(),
+                user.getAvatar(),
+                PostEntity.convertToList(user.getComments())
+        );
+    }
+
+
 }
+
+

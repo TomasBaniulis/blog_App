@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lt.code.academy.blog_app.dto.Comment;
+import lt.code.academy.blog_app.dto.Post;
 import org.hibernate.Length;
 
 import java.time.LocalDateTime;
@@ -25,4 +27,12 @@ public class CommentEntity {
     private String commentText;
     @Column (updatable = false, nullable = false)
     private LocalDateTime commentDate;
+
+    public  static CommentEntity convert (Comment comment) {
+        return new CommentEntity(
+                comment.getCommentId(),
+                comment.getCommentText(),
+                comment.getCommentDate()
+        );
+    }
 }
