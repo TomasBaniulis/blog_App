@@ -6,6 +6,17 @@
 </head>
 <body>
     <h3>BLOG APP MAIN PAGE</h3>
+    <h3>___________________________________________________________________________________________________________________________________</h3>
+
+<div th:if = "${#lists.isEmpty(posts)}"> There are no posts to show(</div>
+<div th:unless="${#lists.isEmpty(posts)}">
+    <div th:each="post: ${posts}">
+        <h4 th:text="${post.postName}"></h4>
+        <h6 th:text="${post.postDate}"></h6>
+        <div th:text="${post.postText}"></div>
+
+    </div>
+</div>
 
 </body>
 </html>
