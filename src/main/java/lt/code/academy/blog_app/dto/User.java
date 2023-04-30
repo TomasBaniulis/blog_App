@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lt.code.academy.blog_app.entity.UserEntity;
 
 import java.util.List;
 import java.util.UUID;
@@ -20,6 +21,19 @@ public class User {
     private String password;
     private String email;
     private String avatar;
+    private List <Comment> comments;
 
-    private List<Role> userRoles;
+
+    public static User converUser (UserEntity userEntity){
+        return new User(
+                userEntity.getUserID(),
+                userEntity.getName(),
+                userEntity.getSurname(),
+                userEntity.getUsername(),
+                userEntity.getPassword(),
+                userEntity.getEmail(),
+                userEntity.getAvatar(),
+                Post.convertList(userEntity.getComments())
+        );
+    }
 }
