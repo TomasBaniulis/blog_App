@@ -58,7 +58,13 @@ public class PostController {
         postService.updatePost(post);
         model.addAttribute("posts", postService.getAllPosts());
         return "/blog";
+    }
 
+    @GetMapping("/{postId}/delete")
+    public String deletePost (@PathVariable UUID postId, Model model){
+        postService.deletePost(postId);
+        model.addAttribute("posts", postService.getAllPosts());
+        return "/blog";
     }
 
 
