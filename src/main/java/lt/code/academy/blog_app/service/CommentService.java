@@ -20,7 +20,7 @@ public class CommentService {
         commentRepository.save(CommentEntity.convert(comment));
     }
 
-    public void updteComment (Comment comment){
+    public void updateComment (Comment comment){
         commentRepository.save(CommentEntity.convert(comment));
     }
 
