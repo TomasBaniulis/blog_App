@@ -6,10 +6,7 @@ import lt.code.academy.blog_app.dto.Post;
 import lt.code.academy.blog_app.service.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -44,8 +41,8 @@ public class PostController {
         return "/form/post";
 
     }
-    @GetMapping("/post")
-    public String showSinglePost (@RequestParam UUID postId, Model model){
+    @GetMapping("/{postId}")
+    public String showSinglePost (@PathVariable UUID postId, Model model){
         model.addAttribute("post", postService.getPostById(postId));
         return "singlePost";
     }
