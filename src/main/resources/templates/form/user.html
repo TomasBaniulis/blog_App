@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User registration</title>
+</head>
+<body>
+
+<h3>ENTER YOUR DETAILS TO SIGN IN </h3>
+<form method="post" th:object="${user}">
+
+    <div>
+        <label>Name:</label>
+        <input type="text" placeholder="enter your name" th:field="*{name}">
+
+        <label>Surname:</label>
+        <input type="text" placeholder="enter your surname" th:field="*{surname}">
+
+        <label>User name:</label>
+        <input type="text" placeholder="enter your username" th:field="*{userName}">
+
+        <label>Password:</label>
+        <input type="password" placeholder="enter your password" th:field="*{password}">
+
+        <label>Email:</label>
+        <input type="email" placeholder="enter your email" th:field="*{email}">
+
+        <label>Avatar link:</label>
+        <input type="text" placeholder="enter your avatar link" th:field="*{avatar}">
+    </div>
+
+    <button type = "submit"> create user </button>
+
+    <h4 th:if="${message}" th:text = "${message}"></h4>
+
+
+
+
+</form>
+
+
+
+
+</body>
+</html>

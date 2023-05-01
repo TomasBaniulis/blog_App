@@ -34,8 +34,6 @@ private String password;
 private String email;
 @Column (length = 100)
 private String avatar;
-@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<CommentEntity> comments;
 
     public static UserEntity convert (User user){
         return new UserEntity(
@@ -45,8 +43,8 @@ private String avatar;
                 user.getUserName(),
                 user.getPassword(),
                 user.getEmail(),
-                user.getAvatar(),
-                PostEntity.convertToList(user.getComments())
+                user.getAvatar()
+
         );
     }
 

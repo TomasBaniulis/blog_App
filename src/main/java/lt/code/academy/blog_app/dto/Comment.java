@@ -17,12 +17,14 @@ public class Comment {
     private UUID commentId;
     private String commentText;
     private LocalDateTime commentDate;
+    private String username;
 
     public static Comment convertComment (CommentEntity commentEntity){
         return  new Comment(
                 commentEntity.getCommentId(),
                 commentEntity.getCommentText(),
-                commentEntity.getCommentDate()
+                commentEntity.getCommentDate(),
+                commentEntity.getUsername()
         );
     }
 }

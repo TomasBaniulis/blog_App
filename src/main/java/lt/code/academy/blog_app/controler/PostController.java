@@ -9,14 +9,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/posts")
+@RequestMapping("/blog")
 public class PostController {
 
     private final PostService postService;
@@ -24,7 +26,7 @@ public class PostController {
     @GetMapping
     public String showAllPosts (Model model){
         model.addAttribute("posts", postService.getAllPosts());
-        return "posts";
+        return "blog";
     }
     @GetMapping("/create")
     public String openPostCreateForm (Model model){
@@ -41,6 +43,11 @@ public class PostController {
         model.addAttribute("message", "Post created successfully");
         return "/form/post";
 
+    }
+    @GetMapping("/post")
+    public String showSinglePost (@RequestParam UUID postId, Model model){
+        model.addAttribute("post", postService.getPostById(postId));
+        return "singlePost";
     }
 
 

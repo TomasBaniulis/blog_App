@@ -21,7 +21,6 @@ public class User {
     private String password;
     private String email;
     private String avatar;
-    private List <Comment> comments;
 
 
     public static User converUser (UserEntity userEntity){
@@ -32,8 +31,7 @@ public class User {
                 userEntity.getUsername(),
                 userEntity.getPassword(),
                 userEntity.getEmail(),
-                userEntity.getAvatar(),
-                Post.convertList(userEntity.getComments())
+                userEntity.getAvatar()
         );
     }
 }

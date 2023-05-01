@@ -31,4 +31,9 @@ public class PostService {
     public List<Post> getAllPosts (){
         return  postRepository.findAll().stream().map(Post::converPost).toList();
     }
+
+    public Post getPostById (UUID postId){
+        return Post.converPost(postRepository.findByPostId(postId));
+
+    }
 }

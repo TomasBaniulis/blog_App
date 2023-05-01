@@ -27,12 +27,15 @@ public class CommentEntity {
     private String commentText;
     @Column (updatable = false, nullable = false)
     private LocalDateTime commentDate;
+    @Column (updatable = false, length=25)
+    private String username;
 
     public  static CommentEntity convert (Comment comment) {
         return new CommentEntity(
                 comment.getCommentId(),
                 comment.getCommentText(),
-                comment.getCommentDate()
+                comment.getCommentDate(),
+                comment.getUsername()
         );
     }
 }
