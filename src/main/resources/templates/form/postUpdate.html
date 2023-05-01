@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post update</title>
+</head>
+<body>
+
+<form method="post" th:object="${post}">
+  <div>
+    <label>Change post title:</label>
+    <input type="text" placeholder="Post title" th:field="*{postName}">
+
+    <label>Update post:</label>
+    <input type="text" placeholder="Post text" th:field="*{postText}">
+  </div>
+
+
+
+  <button type="submit">UPDATE</button>
+
+</form>
+
+</body>
+</html>

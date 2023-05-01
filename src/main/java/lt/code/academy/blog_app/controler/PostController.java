@@ -47,6 +47,20 @@ public class PostController {
         return "singlePost";
     }
 
+    @GetMapping("/{postId}/update")
+    public String openUpdatePostPage (@PathVariable UUID postId, Model model){
+        model.addAttribute("post", postService.getPostById(postId));
+        return "/form/postUpdate";
+    }
+
+    @PostMapping("/{postId}/update")
+    public String updatePost (Post post, Model model){
+        postService.updatePost(post);
+        model.addAttribute("posts", postService.getAllPosts());
+        return "/blog";
+
+    }
+
 
 
 }

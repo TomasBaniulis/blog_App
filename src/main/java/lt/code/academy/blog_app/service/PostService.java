@@ -1,11 +1,14 @@
 package lt.code.academy.blog_app.service;
 
 import lombok.RequiredArgsConstructor;
+import lt.code.academy.blog_app.dto.Comment;
 import lt.code.academy.blog_app.dto.Post;
 import lt.code.academy.blog_app.entity.PostEntity;
 import lt.code.academy.blog_app.repository.PostRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,6 +24,11 @@ public class PostService {
     }
 
     public void updatePost (Post post){
+        if(post.getComments() == null){
+            List<Comment> comments = new ArrayList<>();
+            post.setComments(comments);
+        }
+        post.setPostDate(LocalDate.now());
         postRepository.save(PostEntity.convert(post));
     }
 

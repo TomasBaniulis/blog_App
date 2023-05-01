@@ -19,6 +19,9 @@
             </div>
         </div>
     </div>
+    <div>
+        <a th:href="@{/blog/{postId}/update(postId=${post.postId})}"> UPDATE POST</a>
+    </div>
 </div>
 </div>
 <div th:if="${post eq null}"> POST DOES NOT EXIST :(</div>
